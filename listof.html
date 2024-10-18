@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List of Coffee</title>
+  <link href="css/latte.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+  <div id="wrapper">
+    <h1>Different Types of Coffee</h1>
+    
+    <!-- Navigation back to home page -->
+    <nav>
+      <a href="index.html">Home Page</a>
+    </nav>
+    <h3>Click on one of the following to learn more!</h3>
+
+    <!-- Coffee List -->
+    <ul>
+      <li class="coffee-item" id="americano">Americano</li>
+      <li class="coffee-item" id="latte">Latte</li>
+      <li class="coffee-item" id="cappuccino">Cappuccino</li>
+      <li class="coffee-item" id="chai">Chai Latte</li>
+    </ul>
+
+    <div id="description"></div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      // Coffee descriptions
+      const coffeeDescriptions = {
+        americano: "Americano: Made with espresso and hot water.",
+        latte: "Latte: Made with espresso and steamed milk.",
+        cappuccino: "Cappuccino: Made with equal parts espresso, steamed milk, and foam.",
+        chai: "Chai Latte: Made with black tea, spices, and steamed milk."
+      };
+
+      // Event handler for coffee list clicks
+      $(".coffee-item").click(function() {
+        const coffeeId = $(this).attr("id");
+        $("#description").html("<p>" + coffeeDescriptions[coffeeId] + "</p>");
+        $(".coffee-item").css("color", ""); // Reset color for all items
+        $(this).css("color", "#8B4513"); // Change clicked item to dark brown (in-theme)
+      });
+    });
+  </script>
+
+</body>
+</html>
+
